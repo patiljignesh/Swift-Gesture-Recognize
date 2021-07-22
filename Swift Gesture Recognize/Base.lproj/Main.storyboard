@@ -50,6 +50,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fileBearImageView" destination="zGu-Iw-v1t" id="Qsu-wU-0ee"/>
                         <outlet property="fileBlueberriesImageView" destination="hFW-E2-7nE" id="Nbf-q7-3RT"/>
                         <outlet property="fileStrawberriesImageView" destination="by2-QK-C4b" id="EI1-Ig-oM6"/>
                     </connections>

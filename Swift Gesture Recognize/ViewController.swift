@@ -11,14 +11,16 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var fileStrawberriesImageView: UIImageView!
     @IBOutlet weak var fileBlueberriesImageView: UIImageView!
+    @IBOutlet weak var fileBearImageView: UIImageView!
     
-    var fileViewStraberriesOrigin: CGPoint!
+    var fileViewBlueberriesOrigin: CGPoint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         addPanGesture(view: fileBlueberriesImageView)
-        fileViewStraberriesOrigin = fileStrawberriesImageView.frame.origin
+        fileViewBlueberriesOrigin = fileBlueberriesImageView.frame.origin
+        view.bringSubviewToFront(fileBlueberriesImageView)
     }
 
 
@@ -36,7 +38,15 @@ class ViewController: UIViewController {
         fileViewStraberries.center = CGPoint(x: fileViewStraberries.center.x + translation.x, y: fileViewStraberries.center.y + translation.y)
         sender.setTranslation(CGPoint.zero, in: view)
     case .ended:
-        break
+        if fileBlueberriesImageView.frame.intersects(fileBearImageView.frame){
+            UIView.animate(withDuration: 0.3) {
+                self.fileBlueberriesImageView.alpha = 0.0
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.fileBlueberriesImageView.frame.origin = self.fileViewBlueberriesOrigin
+            }
+        }
     default:
         break
     }
