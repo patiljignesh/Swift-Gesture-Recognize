@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,58 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Swift_Gesture_Recognize" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bear" translatesAutoresizingMaskIntoConstraints="NO" id="zGu-Iw-v1t">
+                                <rect key="frame" x="87" y="599" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="M6P-se-ujP"/>
+                                    <constraint firstAttribute="width" constant="240" id="VbR-GQ-Hvb"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blueberries" translatesAutoresizingMaskIntoConstraints="NO" id="hFW-E2-7nE">
+                                <rect key="frame" x="20" y="183" width="151" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="elT-tS-bfm"/>
+                                    <constraint firstAttribute="width" constant="151" id="fJL-lS-oDH"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Strawberries" translatesAutoresizingMaskIntoConstraints="NO" id="by2-QK-C4b">
+                                <rect key="frame" x="230" y="183" width="151" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="151" id="G9w-cd-EkW"/>
+                                    <constraint firstAttribute="height" constant="128" id="kT6-FO-WO7"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="by2-QK-C4b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="139" id="83K-F9-3LS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zGu-Iw-v1t" secondAttribute="bottom" constant="135" id="9Gh-ye-kvP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="by2-QK-C4b" secondAttribute="trailing" constant="33" id="CJH-0D-F9u"/>
+                            <constraint firstItem="hFW-E2-7nE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Vtv-ai-MH7"/>
+                            <constraint firstItem="zGu-Iw-v1t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="h3T-hc-Df2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zGu-Iw-v1t" secondAttribute="trailing" constant="87" id="hzr-eH-M6z"/>
+                            <constraint firstItem="hFW-E2-7nE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="139" id="oyh-Qk-Rgg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fileBlueberriesImageView" destination="hFW-E2-7nE" id="Nbf-q7-3RT"/>
+                        <outlet property="fileStrawberriesImageView" destination="by2-QK-C4b" id="EI1-Ig-oM6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="92.753623188405811" y="116.51785714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Bear" width="595" height="842"/>
+        <image name="Blueberries" width="5000" height="5000"/>
+        <image name="Strawberries" width="842" height="595"/>
+    </resources>
 </document>
