@@ -29,26 +29,38 @@ class ViewController: UIViewController {
     }
     
    @objc func handlePan(sender: UIPanGestureRecognizer){
-        let fileViewStraberries = sender.view!
-        let translation = sender.translation(in: view)
+        let fileViewBlueberries = sender.view!
         
     switch sender.state {
     case .began, .changed:
-        fileViewStraberries.center = CGPoint(x: fileViewStraberries.center.x + translation.x, y: fileViewStraberries.center.y + translation.y)
-        sender.setTranslation(CGPoint.zero, in: view)
+        moveViewWithPan(view: fileViewBlueberries, sender: sender)
     case .ended:
         if fileBlueberriesImageView.frame.intersects(fileBearImageView.frame){
-            UIView.animate(withDuration: 0.3) {
-                self.fileBlueberriesImageView.alpha = 0.0
-            }
+            deleteView(view: fileViewBlueberries)
         } else {
-            UIView.animate(withDuration: 0.3) {
-                self.fileBlueberriesImageView.frame.origin = self.fileViewBlueberriesOrigin
-            }
+            returnViewWithOrigin(view: fileViewBlueberries)
         }
     default:
         break
     }
    }
+    
+    func moveViewWithPan(view: UIView, sender: UIPanGestureRecognizer){
+        let translation = sender.translation(in: view)
+        view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
+        sender.setTranslation(CGPoint.zero, in: view)
+    }
+    
+    func returnViewWithOrigin(view: UIView){
+        UIView.animate(withDuration: 0.3) {
+            self.fileBlueberriesImageView.frame.origin = self.fileViewBlueberriesOrigin
+        }
+    }
+    
+    func deleteView(view: UIView){
+        UIView.animate(withDuration: 0.3) {
+            self.fileBlueberriesImageView.alpha = 0.0
+        }
+    }
 }
 
